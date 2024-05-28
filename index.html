@@ -7,22 +7,21 @@
   </head>
   <body>
     <div class="container-exterior">
-      <div class="container-interior">
+      <div class="container-interior-forms">
         <form id="form-login" onsubmit="event.preventDefault();">
           <!-- Prevent default avoids the form be sent on pressing a form button
           This is necessary because we want on click a button
            -->
           <p>Please provide your credentials:</p>
           <label for="username">Username:</label>
-          <input type="text" id="username" name="username" required minlength="4" maxlength="50" size="50" value="admin">
+          <input type="text" id="username" name="username" required minlength="4" maxlength="50" value="admin">
           <br>
           <label for="password">Password:</label>
-          <input type="password" id="password" name="password" required minlength="4" maxlength="50" size="50" value="admin">
+          <input type="password" id="password" name="password" required minlength="4" maxlength="50" value="admin">
           <br>
           <label for="result">Result:</label>
           <input type="text" id="result" name="result">
-           <p id="message">Message: </p>
-          <br><br>
+          <br>
           <p id="form-login-message">Message: </p>
           <div class="form-login-button-container">
             <button id="button-login">Login</button>
@@ -40,12 +39,12 @@
           Gid: <br>
           <input type="text" id="form-buildings-gid" name = "form-buildings-gid"> <br>
           Description<br>
-          <textarea rows="5" cols="100" id="form-buildings-descripcion" name="descripcion">Descripcion</textarea><br>
+          <textarea rows="5" id="form-buildings-descripcion" name="descripcion">Descripcion</textarea><br>
           Area<br>
           <!--Disabled because the area is going to be calculated by the database-->
           <input type="text" id="form-buildings-area" name="form-buildings-area" disabled><br>
           Geometry WKT<br>
-          <textarea rows="5" cols="100" id="form-buildings-geomWkt" name="geomWkt">polygon((0 0, 1 0, 1 1, 0 1, 0 0))
+          <textarea rows="5" id="form-buildings-geomWkt" name="geomWkt">polygon((0 0, 1 0, 1 1, 0 1, 0 0))
           </textarea>
           <br>
           <p id="form-buildings-message">Message: </p>
@@ -56,8 +55,10 @@
             <button id="form-building-select">Select</button>
           </div>
         </form>
+      </div><!--Container interior forms-->
+      
+      <div class="container-interior-map">
         <div id="map"></div>
-
         <p id="map-message"></p>
         <div class="form-login-button-container">
           <button id="start-drawing-building">Start drawing a building</button>
@@ -65,9 +66,8 @@
           <button id="reload-wms-buildings-layer">Reload WMS buildings layer</button>
           <button id="clear-vector-buildings-layer">Clear buildings vector layer</button>
         </div>       
-        <p>Probando</p>
-      </div>
-    </div>
+      </div><!--Container interior map-->
+    </div><!--Container exterior-->
     <script type="module" src="./main.js"></script>
   </body>
 </html>
