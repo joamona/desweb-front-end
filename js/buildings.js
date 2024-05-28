@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { URL_API, URL_GEOSERVER } from './settings';
+import { MAP_MAIN, URL_API, URL_GEOSERVER } from './settings';
 
 export function insert(){
     let descripcion=document.getElementById('form-buildings-descripcion').value;
@@ -13,6 +13,8 @@ export function insert(){
             document.getElementById("form-buildings-gid").value=response.data.data[0].gid;
             document.getElementById("form-buildings-area").value=response.data.data[0].area;
             document.getElementById("form-buildings-message").innerHTML=response.data.message;
+            clearVectorBuildingsLayer()
+            reloadWMSBuildingsLayer(); 
         })
         .catch(function (error) {
             // handle error
@@ -39,7 +41,7 @@ export function select(){
                 document.getElementById("form-buildings-gid").value=response.data.data[0].gid;
                 document.getElementById("form-buildings-descripcion").value=response.data.data[0].descripcion;
                 document.getElementById("form-buildings-geomWkt").value=response.data.data[0].st_astext;
-                document.getElementById("form-buildings-area").value=response.data.data[0].area;    
+                document.getElementById("form-buildings-area").value=response.data.data[0].area;   
             }else{
                 document.getElementById("form-buildings-descripcion").value="";
                 document.getElementById("form-buildings-geomWkt").value="";
@@ -57,3 +59,26 @@ export function select(){
             console.log('Finally')
     });
 }
+
+export function startDrawingBuilding(){
+    //Enables de draw interaction
+    MAP_MAIN.startDrawingBuilding();
+    document.getElementById("map-message").innerHTML="Draw poligon interaction active"
+}
+
+export function stopDrawingBuilding(){
+    //Enables de draw interaction
+    MAP_MAIN.stopDrawingBuilding();
+    document.getElementById("map-message").innerHTML="Draw poligon interaction inactive"
+}
+
+export function reloadWMSBuildingsLayer(){
+    MAP_MAIN.reloadWMSBuildingsLayer();
+    document.getElementById("map-message").innerHTML="WMS buildings reloaded"
+}
+
+export function clearVectorBuildingsLayer(){
+    MAP_MAIN.clearVectorBuildingsLayer();
+    document.getElementById("map-message").innerHTML="Vector buildings layer cleared"
+}
+

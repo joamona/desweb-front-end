@@ -53,6 +53,7 @@ button{margin-right: 10px;}
 /**El mapa ocupa el 100% de su contenedor, el div .container-interior*/
 #map {
   padding-top: 20px;
+  padding-bottom: 20px;
   width: 500px;
   height: 500px;
 }
