@@ -1,4 +1,6 @@
 import './style.css';
+import 'ol-layerswitcher/dist/ol-layerswitcher.css';
+
 import { registerEvents } from './js/registerEvents';
 import { helloWord } from './js/helloWorld';
 import { MapMain } from './js/map/mapMain';

@@ -52,11 +52,22 @@ button{margin-right: 10px;}
 
 /**El mapa ocupa el 100% de su contenedor, el div .container-interior*/
 #map {
-  width: 100%;
+  padding-top: 20px;
+  width: 500px;
   height: 500px;
 }
 
-label{
-  color:rgb(87, 165, 42)
-}
 
+/*
+.layer-switcher {
+  max-width: 300px;
+  right: 10px;
+}
+.layer-switcher.shown.layer-switcher-activation-mode-click {
+  padding-right: 34px;
+}
+.layer-switcher.shown.layer-switcher-activation-mode-click > button {
+  right: 0;
+  border-left: 0;
+}
+*/
